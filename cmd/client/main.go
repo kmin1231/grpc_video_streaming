@@ -31,7 +31,7 @@ func main() {
 	}
 
 	// opens the test video file
-	file, err := os.Open("test_video.mp4")
+	file, err := os.Open("cmd/client/test_video.mp4")
 	if err != nil {
 		log.Fatalf("error opening video file: %v", err)
 	}
