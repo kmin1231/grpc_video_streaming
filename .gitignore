@@ -23,3 +23,9 @@ go.work.sum
 
 # env file
 .env
+
+
+# larger test files
+videos/airview.mp4
+videos/river.mp4
+videos/wave.mp4
