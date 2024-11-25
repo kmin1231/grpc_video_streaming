@@ -28,9 +28,8 @@ func main() {
 	http.HandleFunc("/videos", grpcserver.HandleVideoList(videoDir))
 	http.HandleFunc("/stream", func(w http.ResponseWriter, r *http.Request) {
 		videoName := r.URL.Query().Get("video")
-		log.Printf("Streaming video: %s", videoName)
+		log.Printf("Streaming video: %s\n", videoName)
 		grpcserver.HandleVideoStream(videoDir)(w, r)
-		log.Printf("Finished streaming: %s\n", videoName)
 	})
 
 	log.Println("Starting HTTP server on port 9000...")

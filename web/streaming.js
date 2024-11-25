@@ -1,23 +1,27 @@
+document.addEventListener('DOMContentLoaded', function() {
+    loadVideoList();
+});
+
 function loadVideoList() {
     fetch('/videos')
         .then(response => response.json())
         .then(videos => {
-            const select = document.getElementById('videoList');
+            const videoList = document.getElementById('videoList');
             videos.forEach(video => {
-                const option = document.createElement('option');
-                option.value = video;
-                option.textContent = video;
-                select.appendChild(option);
+                const li = document.createElement('li');
+                li.textContent = video;
+                li.addEventListener('click', function() {
+                    playVideo(video);
+                });
+                videoList.appendChild(li);
             });
         })
         .catch(error => console.error('Error loading video list:', error));
 }
 
-function playVideo() {
-    const videoName = document.getElementById('videoList').value;
-    const video = document.getElementById('videoPlayer');
-    video.src = `/stream?video=${encodeURIComponent(videoName)}`;
-    video.play();
+function playVideo(videoName) {
+    console.log('Playing video:', videoName);
+    const videoPlayer = document.getElementById('videoPlayer');
+    videoPlayer.src = `/stream?video=${encodeURIComponent(videoName)}`;
+    videoPlayer.play().catch(e => console.error('Error playing video:', e));
 }
-
-loadVideoList();

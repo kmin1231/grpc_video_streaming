@@ -7,38 +7,84 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
+            margin: 0;
             padding: 20px;
-            background-color: #f0f0f0;
+            box-sizing: border-box;
         }
         h1 {
+            text-align: center;
             color: #333;
-            text-align: center;
+            margin-top: 60px;
+            margin-bottom: 50px;
         }
-        #videoControls {
-            margin-bottom: 20px;
-            text-align: center;
+        h2 {
+            font-size: 22px;
+        }
+        .container {
+            display: flex;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            justify-content: center;
+        }
+        #elemLIST {
+            width: 25%;
+            padding-right: 20px;
+        }
+        #elemPLAY {
+            width: 60%;
+            margin-left: 20px;
         }
         #videoList {
-            padding: 5px;
-            font-size: 16px;
-            margin-right: 10px;
+            font-size: 17px;
+            list-style-type: none;
+            padding: 0;
+        }
+        #videoList li {
+            cursor: pointer;
+            padding: 10px;
+            margin-bottom: 5px;
+            background-color: #f3f9fb;
+            border-radius: 5px;
         }
         #videoPlayer {
             width: 100%;
-            max-width: 800px;
-            height: auto;
-            background-color: #000;
+            max-height: 80vh;
+        }
+        #uploadButton {
+            font-size: 18px;
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #335676;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 45px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        #uploadButton:active {
+            transform: scale(0.98);
         }
     </style>
 </head>
+
 <body>
     <h1>Video Streaming</h1>
-    <div id="videoControls">
-        <select id="videoList" onchange="playVideo()"></select>
+    <div class="container">
+        <div id="elemLIST">
+            <button id="uploadButton">Upload</button>
+            <h2>Available Videos</h2>
+            <ul id="videoList"></ul>
+        </div>
+        <div id="elemPLAY">
+            <video id="videoPlayer" controls autoplay></video>
+        </div>
     </div>
-    <video id="videoPlayer" controls autoplay></video>
+
     <script src="/streaming.js"></script>
 </body>
 </html>
