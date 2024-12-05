@@ -4,9 +4,9 @@
 - 👥 **Contributors**: [Eden Min Kim](https://github.com/kmin1231), [SeongHo5356](https://github.com/SeongHo5356)
 
  
-### 프로젝트 개요
+## 프로젝트 개요
 
-- **`gRPC`**(gRPC Remote Procedure Call)을 활용하여 로컬 환경의 동영상 파일을 업로드하고 웹 브라우저에서 재생하는 프로그램
+- **`gRPC`** 를 활용하여 로컬 환경의 동영상 파일을 업로드하고 웹 브라우저에서 재생하는 프로그램
 
 - **`Go`** 언어로 작성
 
@@ -16,7 +16,7 @@
 
 <br>
 
-### 프로젝트 구조
+## 프로젝트 구조
 
 ```
 .
@@ -54,7 +54,7 @@
 
 <br>
 
-### 개발 환경
+## 개발 환경
 ```
 $ go version
 go version go1.23.1 linux/amd64
@@ -65,23 +65,33 @@ libprotoc 28.3
 
 <br>
 
-### 로컬 환경 실행 방법
+## 로컬 환경 실행 방법
 [terminal #1]
 ```$ go run cmd/server/main.go```
 
 [terminal #2]
 ```$ go run cmd/client/main.go```
 
-<img src="https://drive.google.com/uc?id=1GHi352N-dwArBqhRoIa4LE0UcDJ-mcJR" alt="demo_screenshot" width=60%>
-
 <br>
 
+→ **`🐳Docker`** 적용 이후
 
-### 프로그램 배포 및 관리
+[terminal]
+```$ docker compose up -d```
+
+[web browser]
+[http://localhost:9000/](http://localhost:9000)
+
+<img src="https://drive.google.com/uc?id=1GHi352N-dwArBqhRoIa4LE0UcDJ-mcJR" alt="demo_screenshot" width=60%>
+
+
+## 프로그램 배포 및 관리
+- URL: [http://104.197.208.245:9000/](http://104.197.208.245:9000/)
 - **`🐳Dockerfile`**, **`🐳docker-compose.yaml`**
 
 - **`☸️deployment.yml`**, **`☸️service.yml`** <br>
 → **`kubectl`** 명령어를 통해 **`GKE`** 에 이식 <br>
+→ **`helm`** 을 통해 **`GKE`** 모니터링 시스템 구축 <br>
 → **`Prometheus`** 와 **`Grafana`** 를 통해 서비스 모니터링 (메트릭 데이터 수집 및 시각화) <br>
 
 - **`Terraform`** 을 통해 서비스 관리
